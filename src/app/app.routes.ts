@@ -1,8 +1,4 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './Pages/home/home.component';
-import { PropertyListingComponent } from './Pages/property-listing/property-listing.component';
-import { PropertyDetailsComponent } from './Pages/property-details/property-details.component';
-import { AboutUsComponent } from './Pages/about-us/about-us.component';
 
 export const routes: Routes = [
     {
@@ -12,16 +8,16 @@ export const routes: Routes = [
     },
     {
         path: 'home',
-        component: HomeComponent,
+        loadComponent: () => import('./Pages/home/home.component').then((c) => c.HomeComponent),
         title: 'Home Page | HOCH'
     },
     {
         path: 'propety-listing',
-        component: PropertyListingComponent,
+        loadComponent: () => import('./Pages/property-listing/property-listing.component').then((c) => c.PropertyListingComponent),
         children: [
             {
                 path: 'property-details',
-                component: PropertyDetailsComponent,
+                loadComponent: () => import('./Pages//property-details/property-details.component').then((c) => c.PropertyDetailsComponent),
                 title: 'Property Details Page | HOCH'
             }
         ],
@@ -29,7 +25,7 @@ export const routes: Routes = [
     },
     {
         path: 'about-us',
-        component: AboutUsComponent,
+        loadComponent: () => import('./Pages/about-us/about-us.component').then((c) => c.AboutUsComponent),
         title: 'About Us Page | HOCH'
     }
 ];

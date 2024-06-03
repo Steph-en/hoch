@@ -4,7 +4,15 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        body: ['Quicksand'],
+      },
+      fontWeight: {},
+      fontSize: {},
+      colors: {},
+      screens: {}
+    },
   },
   plugins: [],
 }
